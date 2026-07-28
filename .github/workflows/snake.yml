@@ -22,10 +22,12 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
+      - name: Fix permissions
+        run: sudo chown -R $(whoami) dist
+
       - uses: actions/checkout@v4
         with:
           ref: output
-          clean: false
 
       - name: Push
         uses: crazy-max/ghaction-github-pages@v4
